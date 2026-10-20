@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+data/store.json.tmp
+.DS_Store
+*.log
+.env
+.env.*
+dist-claude/

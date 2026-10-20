@@ -1,0 +1,30 @@
+{
+  "name": "paper-plane",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A minimal, Notion-style writing space built on BlockNote. Write posts or travel plans and share each one by link.",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:claude": "node scripts/build-claude-page.mjs"
+  },
+  "dependencies": {
+    "@blocknote/core": "0.55.0",
+    "@blocknote/mantine": "0.55.0",
+    "@blocknote/react": "0.55.0",
+    "@mantine/core": "8.3.11",
+    "@mantine/hooks": "8.3.11",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.1",
+    "esbuild": "0.28.2",
+    "vite": "8.3.1"
+  }
+}

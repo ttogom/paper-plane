@@ -1,0 +1,290 @@
+/* Paper Plane — Notion's measurements throughout: a 708px page column, a 12/14/16/20/24/30/40px type scale, Inter (BlockNote's font). */
+:root {
+  /* type scale (Notion) */
+  --fs-xs: 12px;     /* small meta, footnotes */
+  --fs-sm: 14px;     /* UI, buttons, properties, captions, tables */
+  --fs-body: 16px;   /* text blocks */
+  --fs-h3: 20px;     /* heading 3 (1.25em) */
+  --fs-h2: 24px;     /* heading 2 (1.5em) */
+  --fs-h1: 30px;     /* heading 1 (1.875em) */
+  --fs-title: 40px;  /* page title */
+
+  /* color (Notion light) */
+  --bg: #ffffff;
+  --ink: #37352f;
+  --ink-2: rgba(55, 53, 47, 0.65);
+  --ink-3: rgba(55, 53, 47, 0.45);
+  --rule: rgba(55, 53, 47, 0.09);
+  --rule-strong: rgba(55, 53, 47, 0.16);
+  --hover: rgba(55, 53, 47, 0.06);
+  --accent: #2383e2;
+  --accent-ink: #ffffff;
+  --danger: #eb5757;
+  --code-ink: #eb5757;
+  --code-bg: rgba(135, 131, 120, 0.15);
+  --code-block-bg: #f7f6f3;
+  --table-rule: #e9e9e7;
+  --table-head: #f7f6f3;
+  --fab-bg: #37352f;
+  --fab-ink: #ffffff;
+
+  --font: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+  --col: 708px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #191919; --ink: rgba(255, 255, 255, 0.81); --ink-2: rgba(255, 255, 255, 0.55); --ink-3: rgba(255, 255, 255, 0.38);
+    --rule: rgba(255, 255, 255, 0.09); --rule-strong: rgba(255, 255, 255, 0.14); --hover: rgba(255, 255, 255, 0.055);
+    --accent: #2383e2; --accent-ink: #ffffff; --danger: #ff7369; --code-ink: #ff7369; --code-bg: rgba(135, 131, 120, 0.15);
+    --code-block-bg: #202020; --table-rule: #2f2f2f; --table-head: #202020; --fab-bg: #ebebea; --fab-ink: #191919;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #191919; --ink: rgba(255, 255, 255, 0.81); --ink-2: rgba(255, 255, 255, 0.55); --ink-3: rgba(255, 255, 255, 0.38);
+  --rule: rgba(255, 255, 255, 0.09); --rule-strong: rgba(255, 255, 255, 0.14); --hover: rgba(255, 255, 255, 0.055);
+  --accent: #2383e2; --accent-ink: #ffffff; --danger: #ff7369; --code-ink: #ff7369; --code-bg: rgba(135, 131, 120, 0.15);
+  --code-block-bg: #202020; --table-rule: #2f2f2f; --table-head: #202020; --fab-bg: #ebebea; --fab-ink: #191919;
+  color-scheme: dark;
+}
+
+/* base (the Claude page's wrapper provides the same; needed when running on its own) */
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: var(--font); font-size: var(--fs-body); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
+}
+
+.ps { min-height: 100vh; }
+.ps-page {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+  padding-block: 80px 120px;
+  box-sizing: content-box;
+}
+.ps-page.is-editor { padding-block-start: 48px; }
+.ps-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ps-row { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* buttons: Notion's 14px UI buttons */
+.ps-btn {
+  font: 500 var(--fs-sm)/1 var(--font);
+  height: 32px; padding: 0 12px; border-radius: 6px; border: 0;
+  display: inline-flex; align-items: center;
+  background: transparent; color: var(--ink-2); cursor: pointer; white-space: nowrap;
+  transition: background .12s, color .12s;
+}
+.ps-btn:hover:not(:disabled) { background: var(--hover); color: var(--ink); }
+.ps-btn:disabled { opacity: .5; cursor: not-allowed; }
+.ps-btn.is-primary { background: var(--accent); color: var(--accent-ink); }
+.ps-btn.is-primary:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); filter: brightness(1.07); }
+.ps-btn.is-small { height: 28px; padding: 0 8px; }
+.ps-btn.is-danger { background: var(--danger); color: #fff; }
+.ps-btn.is-danger:hover:not(:disabled) { background: var(--danger); color: #fff; filter: brightness(1.05); }
+.ps-btn.is-danger-text:hover:not(:disabled) { color: var(--danger); }
+.ps-linkish {
+  font: inherit; color: var(--ink-2); background: none; border: 0; padding: 0; cursor: pointer;
+}
+.ps-linkish:hover { color: var(--ink); }
+.ps-linkish.is-danger:hover { color: var(--danger); }
+.ps :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.ps .bn-editor:focus-visible, .ps .bn-editor:focus { outline: none; }
+
+.ps-meta { font-size: var(--fs-sm); color: var(--ink-2); margin: 0; }
+.ps-eyebrow { font-size: var(--fs-xs); font-weight: 500; color: var(--ink-3); margin: 0 0 6px; }
+.ps-chip { font-size: var(--fs-xs); color: var(--ink-2); background: var(--hover); padding: 0 6px; line-height: 20px; border-radius: 3px; }
+
+/* page header: a Notion page title */
+.ps-masthead { margin-bottom: 24px; }
+.ps-wordmark { font-size: var(--fs-title); font-weight: 700; line-height: 1.2; margin: 0; }
+.ps-sub { font-size: var(--fs-sm); color: var(--ink-2); margin: 8px 0 0; }
+
+/* post list */
+.ps-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.ps-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.ps-item-body { min-width: 0; display: grid; gap: 2px; }
+.ps-item-title {
+  font: 600 var(--fs-body)/1.5 var(--font); color: var(--ink); text-align: left; text-wrap: balance;
+  background: none; border: 0; padding: 0; cursor: pointer;
+}
+.ps-item-title:hover { text-decoration: underline; text-decoration-color: var(--ink-3); text-underline-offset: 3px; }
+.ps-item-excerpt { font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-2); margin: 0;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ps-item-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: var(--fs-xs); color: var(--ink-3); margin-top: 4px; }
+.ps-item-actions { display: inline-flex; gap: 12px; margin-left: auto; font-size: var(--fs-sm); }
+.ps-item-thumb { width: 72px; aspect-ratio: 1; max-width: 100%; padding: 0; border: 0; border-radius: 4px; overflow: hidden; cursor: pointer; background: var(--hover); }
+.ps-item-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.ps-drafts { margin: 0 0 32px; font-size: var(--fs-sm); }
+.ps-drafts ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.ps-drafts li { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.ps-drafts .ps-linkish { color: var(--ink); font-weight: 500; }
+.ps-drafts .ps-meta { font-size: var(--fs-xs); color: var(--ink-3); }
+
+.ps-empty { padding: 40px 0; display: grid; gap: 12px; justify-items: start; color: var(--ink-2); }
+.ps-empty p { margin: 0; }
+.ps-foot { margin-top: 48px; font-size: var(--fs-xs); color: var(--ink-3); }
+
+/* reader */
+.ps-crumbs { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; font-size: var(--fs-sm); }
+.ps-article-head { display: grid; gap: 8px; margin-bottom: 20px; }
+.ps-article-titles { display: grid; gap: 8px; min-width: 0; }
+.ps-title { font: 700 var(--fs-title)/1.2 var(--font); margin: 0; color: var(--ink); }
+@media (max-width: 520px) { .ps-page { padding-block-start: 48px; } }
+
+/* editor chrome: Notion's 45px top bar */
+.ps-toolbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); }
+.ps-toolbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 45px; box-sizing: border-box;
+  padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); padding-block: 6px; font-size: var(--fs-sm); }
+.ps-status { flex: 1; min-width: 0; font-size: var(--fs-sm); color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps-status.is-warn { color: var(--danger); white-space: normal; }
+@media (max-width: 560px) { .ps-status { display: none; } }
+.ps-title-input { display: block; width: 100%; resize: none; overflow: hidden; border: 0; outline: none; padding: 3px 0; background: transparent; box-sizing: border-box; }
+.ps-title-input::placeholder { color: var(--ink); opacity: .16; }
+.ps-title-input:focus-visible { outline: none; }
+.ps-hint { margin: 8px 0 16px; font-size: var(--fs-sm); color: var(--ink-3); }
+.ps-hint kbd { font: inherit; padding: 0 4px; border-radius: 3px; background: var(--hover); }
+.ps-notice { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: baseline;
+  padding: 10px 14px; margin-bottom: 20px; border-radius: 4px; background: var(--hover); font-size: var(--fs-sm); color: var(--ink-2); }
+.ps-notice.is-error { color: var(--danger); }
+.ps-confirm { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 16px;
+  margin: 8px 0 16px; padding: 12px 14px; border-radius: 4px; background: var(--hover); }
+.ps-confirm p { margin: 0; font-size: var(--fs-sm); flex: 1 1 16rem; }
+
+.ps-toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  z-index: 20; max-width: min(32rem, calc(100vw - 32px)); padding: 8px 14px; border-radius: 6px;
+  background: var(--ink); color: var(--bg); font-size: var(--fs-sm); box-shadow: 0 4px 16px rgba(0,0,0,.14); animation: ps-rise .18s ease-out; }
+.ps-toast.is-error { background: var(--danger); color: #fff; }
+@keyframes ps-rise { from { transform: translate(-50%, 6px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ps-toast { animation: none; } .ps-btn { transition: none; } }
+
+/* ---------- BlockNote, set to Notion's block styles ---------- */
+.ps .bn-root, .ps .bn-root[data-color-scheme="dark"], .ps .bn-root[data-color-scheme="light"] {
+  --bn-colors-editor-text: var(--ink);
+  --bn-colors-editor-background: transparent;
+  --bn-colors-menu-text: var(--ink);
+  --bn-colors-menu-background: var(--bg);
+  --bn-colors-hovered-text: var(--ink);
+  --bn-colors-hovered-background: var(--hover);
+  --bn-colors-border: var(--rule);
+  --bn-colors-side-menu: var(--ink-3);
+  --bn-font-family: var(--font);
+}
+.ps-doc .bn-editor { font-family: var(--font); font-size: var(--fs-body); line-height: 1.5; padding-inline: 0; background: transparent; }
+.ps-doc.is-editing { margin-inline: -54px; }
+.ps-doc.is-editing .bn-editor { padding-inline: 54px; min-height: 50vh; padding-bottom: 30vh; }
+@media (max-width: 860px) {
+  .ps-doc.is-editing { margin-inline: -28px; }
+  .ps-doc.is-editing .bn-editor { padding-inline: 28px; }
+}
+@media (max-width: 520px) {
+  .ps-doc.is-editing { margin-inline: 0; }
+  .ps-doc.is-editing .bn-editor { padding-inline: 0; }
+}
+
+/* blocks: 3px padding plus 1px margin, as in Notion */
+.ps-doc .bn-block-outer { margin-block: 1px; }
+
+/* headings: 30 / 24 / 20px, weight 600, line-height 1.3, Notion's top spacing (2em / 1.4em / 1em of body text).
+   Heading 1 is BlockNote's default level, so it carries no data-level attribute. */
+.ps-doc [data-content-type="heading"]:not([data-level]),
+.ps-doc [data-content-type="heading"][data-level="1"] { --level: 1.875em; }
+.ps-doc [data-content-type="heading"][data-level="2"] { --level: 1.5em; }
+.ps-doc [data-content-type="heading"][data-level="3"] { --level: 1.25em; }
+.ps .ps-doc .bn-block-outer > .bn-block > .bn-block-content[data-content-type="heading"] { line-height: 1.3; font-weight: 600; }
+.ps .ps-doc .bn-block-content[data-content-type="heading"] :is(h1, h2, h3, h4, h5, h6) { font-weight: 600; }
+.ps .ps-doc .bn-block-content[data-content-type="heading"]:is(:not([data-level]), [data-level="1"]) { margin-top: 32px; margin-bottom: 4px; }
+.ps .ps-doc .bn-block-content[data-content-type="heading"][data-level="2"] { margin-top: 22px; margin-bottom: 1px; }
+.ps .ps-doc .bn-block-content[data-content-type="heading"][data-level="3"] { margin-top: 16px; margin-bottom: 1px; }
+
+/* links: inherit color, faint underline, medium weight */
+.ps-doc .bn-inline-content a, .ps-doc a { color: inherit; font-weight: 500; text-decoration: underline; text-decoration-color: var(--ink-3); text-decoration-thickness: .05em; text-underline-offset: 2px; }
+
+/* quote: 1.2em, 3px solid bar in text color */
+.ps-doc [data-content-type="quote"] blockquote { font-size: 1.2em; color: var(--ink); border-left: 3px solid currentColor; padding: 0 14px; }
+
+/* inline code */
+.ps-doc .bn-inline-content code { font-family: var(--font-mono); font-size: 85%; color: var(--code-ink); background: var(--code-bg); padding: .2em .4em; border-radius: 4px; }
+
+/* code block */
+.ps-doc .bn-block-content[data-content-type="codeBlock"] { background: var(--code-block-bg); color: var(--ink); border-radius: 4px; }
+.ps-doc .bn-block-content[data-content-type="codeBlock"] > pre { font-family: var(--font-mono); font-size: 85%; line-height: 1.5; tab-size: 2; padding: 32px 16px 32px 32px; color: var(--ink); }
+.ps-doc .bn-block-content[data-content-type="codeBlock"] > div > select { color: var(--ink-2); font-size: var(--fs-xs); font-family: var(--font); }
+
+/* divider */
+.ps-doc [data-content-type="divider"] hr { border: 0; border-top: 1px solid var(--rule-strong); }
+
+/* tables: 14px, 7px 9px cells */
+.ps-doc [data-content-type="table"] table { font-size: var(--fs-sm); }
+.ps-doc [data-content-type="table"] :is(td, th) { padding: 7px 9px; border-color: var(--table-rule); }
+.ps-doc [data-content-type="table"] th { background: var(--table-head); font-weight: 500; color: var(--ink-2); }
+
+/* captions */
+.ps-doc .bn-file-caption { font-size: var(--fs-sm); color: var(--ink-2); padding: 6px 2px; }
+.ps-doc .bn-visual-media { border-radius: 4px; }
+.ps-doc.is-reading .bn-container { overflow-x: auto; }
+
+/* floating "New post" button: a round pencil button that opens into a labelled pill */
+.ps-fab {
+  position: fixed; z-index: 15;
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: 0;
+  height: 56px; min-width: 56px; padding: 0 17px; box-sizing: border-box;
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--fab-bg); color: var(--fab-ink);
+  font: 500 var(--fs-sm)/1 var(--font);
+  box-shadow: 0 6px 20px rgba(15, 15, 15, .18), 0 2px 6px rgba(15, 15, 15, .1);
+  transition: transform .18s ease, box-shadow .18s ease, gap .2s ease, padding .2s ease;
+}
+.ps-fab-icon { flex: none; }
+.ps-fab-label { max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; transition: max-width .22s ease, opacity .18s ease; }
+.ps-fab:hover, .ps-fab:focus-visible { gap: 7px; padding-right: 20px; transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(15, 15, 15, .22), 0 3px 8px rgba(15, 15, 15, .12); }
+.ps-fab:hover .ps-fab-label, .ps-fab:focus-visible .ps-fab-label { max-width: 4rem; opacity: 1; }
+.ps-fab:active { transform: translateY(0) scale(.97); }
+.ps-fab:focus-visible { outline: 2px solid var(--fab-bg); outline-offset: 3px; }
+/* touch screens have no hover, so the label stays visible there */
+@media (hover: none) {
+  .ps-fab { gap: 7px; padding-right: 20px; }
+  .ps-fab .ps-fab-label { max-width: 4rem; opacity: 1; }
+}
+@media (max-width: 560px) {
+  .ps-fab { right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .ps-toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) { .ps-fab, .ps-fab-label { transition: none; } }
+
+/* back link: chevron + label */
+.ps-back { display: inline-flex; align-items: center; gap: 2px; margin-left: -4px; }
+.ps-back svg { flex: none; }
+
+/* logo in place of a page name */
+.ps-logo { margin: 0; line-height: 0; color: var(--ink); }
+.ps-logo-mark { display: block; }
+.ps-masthead .ps-sub { margin-top: 12px; }
+
+/* visitor view */
+.ps-masthead { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ps-preview-btn { gap: 6px; }
+.ps-preview-btn svg { flex: none; }
+.ps-visitor-mark { color: var(--ink); line-height: 0; margin-bottom: 40px; }
+.ps-visitor-mark .ps-logo-mark { width: 48px; height: 48px; }
+.ps-empty.is-visitor { padding-top: 0; max-width: 32rem; }
+
+/* preview bar: a quiet band across the top while the owner previews */
+.ps-previewbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 12; background: var(--hover); border-bottom: 1px solid var(--rule); }
+.is-previewing { background: var(--bg); }
+.ps-previewbar-inner { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap;
+  padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); padding-block: 8px;
+  font-size: var(--fs-sm); color: var(--ink-2); box-sizing: content-box; }
+.ps-previewbar-inner strong { color: var(--ink); font-weight: 600; }
+.ps-previewbar-exit { color: var(--ink); background: var(--bg); box-shadow: 0 0 0 1px var(--rule-strong); }

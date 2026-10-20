@@ -1,0 +1,176 @@
+{
+  "site": {
+    "url": "https://claude.ai/artifact/PxfFLnnhZT1QrihQ1mSyMb"
+  },
+  "docs": [
+    {
+      "id": "p-example1",
+      "title": "How this page works (example post)",
+      "createdAt": 1792461600000,
+      "updatedAt": 1792461600000,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is an example post. Delete it once you've published something of your own. ",
+              "styles": {
+                "italic": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "props": {
+            "level": 2
+          },
+          "content": "Writing"
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Press ",
+              "styles": {}
+            },
+            {
+              "type": "text",
+              "text": "New post",
+              "styles": {
+                "bold": true
+              }
+            },
+            {
+              "type": "text",
+              "text": " on the main page. Type ",
+              "styles": {}
+            },
+            {
+              "type": "text",
+              "text": "/",
+              "styles": {
+                "code": true
+              }
+            },
+            {
+              "type": "text",
+              "text": " anywhere to add headings, lists, quotes, tables, code or images, and select text to make it bold, italic, colored or a link. Blocks can be dragged by the handle on their left.",
+              "styles": {}
+            }
+          ]
+        },
+        {
+          "type": "bulletListItem",
+          "content": "Drafts save on your device as you type, so closing the tab doesn't lose anything."
+        },
+        {
+          "type": "bulletListItem",
+          "content": "Nothing reaches your friends until you press Publish."
+        },
+        {
+          "type": "bulletListItem",
+          "content": "Published posts can be edited or deleted later."
+        },
+        {
+          "type": "heading",
+          "props": {
+            "level": 2
+          },
+          "content": "Sharing"
+        },
+        {
+          "type": "paragraph",
+          "content": "Share this page's link from the Claude app. Friends see the list of posts and can open any of them to read; they never see the editing controls. Each post also has a Copy link button that opens straight to it."
+        },
+        {
+          "type": "quote",
+          "content": "A short quote looks like this, in case you want to pull out a line."
+        },
+        {
+          "type": "checkListItem",
+          "props": {
+            "checked": true
+          },
+          "content": "Read the example"
+        },
+        {
+          "type": "checkListItem",
+          "props": {
+            "checked": false
+          },
+          "content": "Write a real post, then delete this one"
+        }
+      ]
+    },
+    {
+      "id": "p-slbieldps",
+      "title": "Plan",
+      "blocks": [
+        {
+          "id": "d6814680-885e-483f-b057-af7e3bc587e9",
+          "type": "paragraph",
+          "props": {
+            "backgroundColor": "default",
+            "textColor": "default",
+            "textAlignment": "left"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Hi",
+              "styles": {}
+            }
+          ],
+          "children": []
+        }
+      ],
+      "createdAt": 1792464899766,
+      "updatedAt": 1792464899766
+    },
+    {
+      "id": "p-grzuew0b9",
+      "title": "Hi this is my first travel plan",
+      "blocks": [
+        {
+          "id": "cb13f345-0d4b-4bd8-ad42-2591ecca72c9",
+          "type": "paragraph",
+          "props": {
+            "backgroundColor": "default",
+            "textColor": "default",
+            "textAlignment": "left"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "Hi hello",
+              "styles": {}
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "42938d5a-1216-47b0-b601-26cda050af6e",
+          "type": "paragraph",
+          "props": {
+            "backgroundColor": "default",
+            "textColor": "default",
+            "textAlignment": "left"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "$8",
+              "styles": {}
+            }
+          ],
+          "children": []
+        }
+      ],
+      "createdAt": 1792465727679,
+      "updatedAt": 1792465727679
+    }
+  ]
+}
