@@ -220,7 +220,7 @@
           "children": []
         },
         {
-          "id": "eb02df52-03a0-48c3-aacc-7ed838530b07",
+          "id": "950b711e-01af-4019-be94-4712112576a9",
           "type": "table",
           "props": {
             "textColor": "default"
@@ -228,11 +228,9 @@
           "content": {
             "type": "tableContent",
             "columnWidths": [
-              142,
-              142,
-              142,
-              119,
-              164
+              105,
+              473,
+              null
             ],
             "headerRows": 1,
             "rows": [
@@ -243,32 +241,10 @@
                     "content": [
                       {
                         "type": "text",
-                        "text": "Schedule 1",
+                        "text": "Schedule",
                         "styles": {}
                       }
                     ],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
                     "props": {
                       "colspan": 1,
                       "rowspan": 1,
@@ -324,194 +300,13 @@
                   },
                   {
                     "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  }
-                ]
-              },
-              {
-                "cells": [
-                  {
-                    "type": "tableCell",
                     "content": [
                       {
                         "type": "text",
-                        "text": "Hello",
+                        "text": "Go to the Getty Museum",
                         "styles": {}
                       }
                     ],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "children": []
-        },
-        {
-          "id": "950b711e-01af-4019-be94-4712112576a9",
-          "type": "table",
-          "props": {
-            "textColor": "default"
-          },
-          "content": {
-            "type": "tableContent",
-            "columnWidths": [
-              null,
-              null,
-              null
-            ],
-            "headerRows": 3,
-            "headerCols": 3,
-            "rows": [
-              {
-                "cells": [
-                  {
-                    "type": "tableCell",
-                    "content": [
-                      {
-                        "type": "text",
-                        "text": "Hi",
-                        "styles": {}
-                      }
-                    ],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  }
-                ]
-              },
-              {
-                "cells": [
-                  {
-                    "type": "tableCell",
-                    "content": [],
-                    "props": {
-                      "colspan": 1,
-                      "rowspan": 1,
-                      "backgroundColor": "default",
-                      "textColor": "default",
-                      "textAlignment": "left"
-                    }
-                  },
-                  {
-                    "type": "tableCell",
-                    "content": [],
                     "props": {
                       "colspan": 1,
                       "rowspan": 1,
@@ -587,7 +382,7 @@
         }
       ],
       "createdAt": 1792465727679,
-      "updatedAt": 1792540069422
+      "updatedAt": 1792541619174
     },
     {
       "id": "p-3hcziz1ce",
@@ -977,7 +772,7 @@
         }
       ],
       "createdAt": 1792539570900,
-      "updatedAt": 1792541199986
+      "updatedAt": 1792549976453
     }
   ]
 }
