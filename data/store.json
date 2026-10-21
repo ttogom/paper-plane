@@ -666,8 +666,8 @@
             "columnWidths": [
               null,
               185,
-              513,
-              null
+              221,
+              172
             ],
             "headerRows": 1,
             "rows": [
@@ -977,7 +977,7 @@
         }
       ],
       "createdAt": 1792539570900,
-      "updatedAt": 1792540701430
+      "updatedAt": 1792541199986
     }
   ]
 }

@@ -5,6 +5,7 @@ import { BackLink, ConfirmBar } from "./ui.jsx";
 import { fmtDate, fmtTime } from "../lib/posts.js";
 import { local, DRAFT_PREFIX } from "../lib/storage.js";
 import { tableHeaderFix } from "../lib/tableHeaders.js";
+import { tableResizeLimit } from "../lib/tableResizeLimit.js";
 
 /**
  * Write a new post or edit a published one. Drafts autosave to this browser
@@ -40,7 +41,7 @@ export function Editor({ id, existing, dark, upload, canPublish, onBack, onPubli
       uploadFile,
       // Table extras BlockNote leaves off by default: cell colors, header rows/columns, merging cells.
       tables: { cellBackgroundColor: true, cellTextColor: true, headers: true, splitCells: true },
-      extensions: [tableHeaderFix()],
+      extensions: [tableHeaderFix(), tableResizeLimit()],
     },
     [],
   );

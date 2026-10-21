@@ -234,6 +234,9 @@ body::before {
   width: calc(100% + max(0px, (100vw - var(--col)) / 2 - 24px)); flex-shrink: 0;
   overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent;
 }
+/* while resizing a column: a guide at the text column's edge; solid blue while the table edge is held on it */
+.ps-table-limit { position: fixed; z-index: 30; width: 0; border-left: 1px dashed var(--ink-3); pointer-events: none; }
+.ps-table-limit.is-on { border-left: 2px solid var(--accent); margin-left: -1px; }
 /* never let anything push the whole page sideways (e.g. BlockNote's add-column button beside a wide table) */
 .ps { position: relative; overflow-x: clip; }
 
