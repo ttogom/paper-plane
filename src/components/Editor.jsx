@@ -4,6 +4,7 @@ import { BlockNoteView } from "@blocknote/mantine";
 import { BackLink, ConfirmBar } from "./ui.jsx";
 import { fmtDate, fmtTime } from "../lib/posts.js";
 import { local, DRAFT_PREFIX } from "../lib/storage.js";
+import { tableHeaderFix } from "../lib/tableHeaders.js";
 
 /**
  * Write a new post or edit a published one. Drafts autosave to this browser
@@ -13,7 +14,9 @@ import { local, DRAFT_PREFIX } from "../lib/storage.js";
 export function Editor({ id, existing, dark, upload, canPublish, onBack, onPublish, onDelete }) {
   const key = DRAFT_PREFIX + id;
   const [initial] = useState(() => {
-    const d = local.get(key);
+    let d = local.get(key);
+    // Drafts saved during the Editor.js trial hold { type, data } blocks BlockNote can't open; drop them.
+    if (d?.blocks?.some((b) => b && "data" in b)) { local.del(key); d = null; }
     if (d && (d.blocks?.length || d.title)) return { title: d.title || "", blocks: d.blocks, restored: d.savedAt };
     return { title: existing?.title || "", blocks: existing?.blocks, restored: null };
   });
@@ -32,7 +35,13 @@ export function Editor({ id, existing, dark, upload, canPublish, onBack, onPubli
   const uploadFile = useCallback((file) => uploadRef.current(file), []);
 
   const editor = useCreateBlockNote(
-    { initialContent: initial.blocks?.length ? initial.blocks : undefined, uploadFile },
+    {
+      initialContent: initial.blocks?.length ? initial.blocks : undefined,
+      uploadFile,
+      // Table extras BlockNote leaves off by default: cell colors, header rows/columns, merging cells.
+      tables: { cellBackgroundColor: true, cellTextColor: true, headers: true, splitCells: true },
+      extensions: [tableHeaderFix()],
+    },
     [],
   );
 

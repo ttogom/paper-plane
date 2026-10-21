@@ -225,12 +225,21 @@ body::before {
 /* tables: 14px, 7px 9px cells */
 .ps-doc [data-content-type="table"] table { font-size: var(--fs-sm); }
 .ps-doc [data-content-type="table"] :is(td, th) { padding: 7px 9px; border-color: var(--table-rule); }
-.ps-doc [data-content-type="table"] th { background: var(--table-head); font-weight: 500; color: var(--ink-2); }
+.ps-doc [data-content-type="table"] th:not([data-background-color]) { background: var(--table-head); }
+.ps-doc [data-content-type="table"] th { font-weight: 500; color: var(--ink-2); }
+
+/* wide tables, as in Notion: a table can grow past the text column into the space on its right,
+   up to the page's 24px edge; anything wider scrolls sideways. On narrow screens it scrolls within the column. */
+.ps .ps-doc [data-content-type="table"] .tableWrapper {
+  width: calc(100% + max(0px, (100vw - var(--col)) / 2 - 24px)); flex-shrink: 0;
+  overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent;
+}
+/* never let anything push the whole page sideways (e.g. BlockNote's add-column button beside a wide table) */
+.ps { position: relative; overflow-x: clip; }
 
 /* captions */
 .ps-doc .bn-file-caption { font-size: var(--fs-sm); color: var(--ink-2); padding: 6px 2px; }
 .ps-doc .bn-visual-media { border-radius: 4px; }
-.ps-doc.is-reading .bn-container { overflow-x: auto; }
 
 /* floating "New post" button: a round pencil button that opens into a labelled pill */
 .ps-fab {
